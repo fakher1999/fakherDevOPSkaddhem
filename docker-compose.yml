@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  mysqldb:
+    image: mysql/mysql-server:latest
+    restart: always
+    ports:
+      - 3307:3307
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+    networks:
+      - default
+  backend:
+    build: .
+    ports:
+      - 9089:9089
+    depends_on:
+      - mysqldb
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3307/kaddemProject?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+    networks:
+      - default
+networks:
+  default:
