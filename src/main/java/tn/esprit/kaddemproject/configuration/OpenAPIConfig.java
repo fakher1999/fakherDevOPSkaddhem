@@ -32,9 +32,9 @@ public class OpenAPIConfig {
 	}
 
 	public Contact contactAPI() {
-		Contact contact = new Contact().name("Mohamed Ouledhamed")
-				.email("mohamed.ouledhamed@esprit.tn")
-				.url("https://www.linkedin.com/in/mohamed-ouledhamed/");
+		Contact contact = new Contact().name("fakher benali")
+				.email("fakher.benali@esprit.tn")
+				.url("https://www.linkedin.com/in/fakher-benali-a91382228/");
 		return contact;
 	}
 
